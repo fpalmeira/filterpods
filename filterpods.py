@@ -12,11 +12,11 @@ def list_pods_by_status_state(phase):
     try:
         print(f"Listing all pods with status: {phase}")
         all_pods = v1.list_pod_for_all_namespaces(watch=False)
-        print("%s\t%s\t%s" % ("Pod name", "Pod namespace", "Pod Status"))
+        print("%s\t%s" % ("Pod name", "Pod namespace"))
         for pod in all_pods.items:
             pod_phase=pod.status.phase
             if phase in pod_phase:
-                print("%s\t%s\t%s" % (pod.metadata.name, pod.metadata.namespace, pod.status.phase))
+                print("%s\t%s" % (pod.metadata.name, pod.metadata.namespace))
 
     except ApiException as e:
         print(f"Exception when calling CoreV1Api->list_pod_for_all_namespaces: {e}\n")
