@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: ltwistz/filterpods
+  pullPolicy: IfNotPresent
+  tag: ""
+
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+
+podAnnotations: {}
+podLabels: {}
+
+podStatus: "Pending"
